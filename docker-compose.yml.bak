@@ -1,0 +1,13 @@
+version: '2'
+services:
+  web:
+   image: nginx
+   ports:
+   - "9090:80"
+   - "50000:50000"
+   volumes:
+
+    - ./vol1:/etc/nginx/conf.d/
+
+  database:
+   image: mysql

@@ -1,0 +1,23 @@
+
+version: '3'
+services:
+    web:
+        build: .
+        image: takacsmark/swarm-example:1.0
+        ports:
+            - 9000:3000
+        networks:
+            - mynet
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 2
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+#    web:
+ #    image: nginx
+  #   ports:
+   #   - 80:8080   
+networks:
+    mynet:
